@@ -26,6 +26,7 @@ public class QuestionController {
             List<Question> questions = questionService.getAllQuestions();
             return ResponseEntity.ok(questions);
         }catch(Exception e){
+            System.out.println(e.getMessage());
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "An unexpected error occurred", e);
         }
     }
@@ -41,6 +42,7 @@ public class QuestionController {
         } catch (QuestionNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
         } catch(Exception e){
+            System.out.println(e.getMessage());
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "An unexpected error occurred", e);
         }
     }
@@ -51,6 +53,7 @@ public class QuestionController {
             Integer id = questionService.addQuestion(question);
             return ResponseEntity.ok(id);
         }catch(Exception e){
+            System.out.println(e.getMessage());
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "An unexpected error occurred", e);
         }
     }
@@ -61,6 +64,7 @@ public class QuestionController {
             List<Integer> questionsIds = questionService.getQuestionsForQuiz(categoryName, numQuestions);
             return ResponseEntity.ok(questionsIds);
         }catch(Exception e){
+            System.out.println(e.getMessage());
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "An unexpected error occurred", e);
         }
     }
@@ -71,6 +75,7 @@ public class QuestionController {
             List<QuestionWrapper> questions = questionService.getQuestionsFromIds(questionsIds);
             return ResponseEntity.ok(questions);
         }catch(Exception e){
+            System.out.println(e.getMessage());
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "An unexpected error occurred", e);
         }
     }
@@ -81,6 +86,7 @@ public class QuestionController {
             Integer score = questionService.getScore(responses);
             return ResponseEntity.ok(score);
         }catch(Exception e){
+            System.out.println(e.getMessage());
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "An unexpected error occurred", e);
         }
     }
