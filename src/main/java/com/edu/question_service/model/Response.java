@@ -1,11 +1,16 @@
 package com.edu.question_service.model;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
 public class Response {
-    private int id;
+    @NotNull(message = "Question ID is required")
+    private Integer id;
+    
+    @NotBlank(message = "Response is required")
     private String response;
 }
